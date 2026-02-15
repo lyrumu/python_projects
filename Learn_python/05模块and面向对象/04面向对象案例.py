@@ -18,7 +18,7 @@ class Student:
 
 class EduManagement:
     system_version = 1.0
-    system_name = "教务管理系统"
+    system_name = "教务管理系统"#类属性
     def __init__(self):
         self.student_list=[]
 
@@ -32,6 +32,7 @@ class EduManagement:
         math = float(input('请输入数学成绩'))
         english = float(input("请输入英语成绩"))
         if 0<=chinese<=100 and 0<=math<=100 and 0<=english<=100:
+            #创建学生实例
             stu = Student(name,chinese,math,english)
             self.student_list.append(stu)
             print("添加成功")
@@ -47,6 +48,7 @@ class EduManagement:
                 math = float(input('请输入修改后数学成绩'))
                 english = float(input("请输入修改后英语成绩"))
                 if 0<=chinese<=100 and 0<=math<=100 and 0<=english<=100:
+                    #调用学生类的方法
                     s.update_score(chinese,math,english)
                     print("修改成功")
                     print(f"当前成绩：{s}")
@@ -69,6 +71,7 @@ class EduManagement:
         name = input("请输入查询的学生姓名")
         for s in self.student_list:
             if name == s.name:
+                #得益于__str__方法
                 print(f"{s}")
                 return
         print("未找到学生")
@@ -85,23 +88,26 @@ class EduManagement:
             print("1.添加学生 2.修改学生 3.删除学生 4.查询指定学生 5.查询所有学生 6.退出系统")
             print("###########################################################")
             oper = int(input("请输入操作数字"))
-            match oper:
-                case 1:
-                    self.add_student()
-                case 2:
-                    self.update_student()
-                case 3:
-                    self.delete_student()
-                case 4:
-                    self.find_student()
-                case 5:
-                    self.list_student()
-                case 6:
-                    print("已退出系统")
-                    break
-                case _:
-                    print("非法操作")
+            try:
+                match oper:
+                    case 1:
+                        self.add_student()
+                    case 2:
+                        self.update_student()
+                    case 3:
+                        self.delete_student()
+                    case 4:
+                        self.find_student()
+                    case 5:
+                        self.list_student()
+                    case 6:
+                        print("已退出系统")
+                        break
+                    case _:
+                        print("非法操作")
+            except Exception as e:
+                print(e)
 
-
+#启动
 edu = EduManagement()
 edu.run()
