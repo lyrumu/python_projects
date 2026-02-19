@@ -104,6 +104,8 @@
 
 `ctrl+y`删除当前行代码;
 
+`alt+p`强制大模型插件智能推荐代码
+
 ---
 
 # <mark>Syntax</mark>
@@ -126,8 +128,66 @@ Python是动态变量，**同一个变量可以存储不同类型的数据**
 
 # <mark>Streamlit</mark>
 
-> 一个python包 通过它可以依据python语言开发前端页面 无需学习所有剩余前端知识
+> 一个python库 通过它可以依据python语言开发交互式Web界面
+> 
+> 无需学习所有前端代码知识
+> 
+> 主要用于数据科学和机器学习
+
+
+
+在Pycharm中打开终端PowerShell输入以下安装命令
+
+```powershell
+pip install streamlit
+```
+
+运行文件:右击文件-在终端中打开-输入`streamlit run xxx.py`
+
+详情学习前往官方网址[Streamlit documentation](https://docs.streamlit.io/)
 
 ---
 
+# Problems
 
+## lingma插件
+
+在Pycharm中安装该插件后重启IDE
+
+报错(1):
+
+```powershell
+
+```
+
+报错(2):
+
+```powershell
+updateCustomSuggestPrompt error
+java.lang.NullPointerException: Cannot invoke "com.alibabacloud.intellij.cosy.db.DataSourceService.isDatasourceExist()" because "dataSourceService" is null
+	at com.alibabacloud.intellij.cosy.chat.context.DatabaseContextRefProvider.register(DatabaseContextRefProvider.java:97)
+	at com.alibabacloud.intellij.cosy.util.SuggestPromptUtil.updateCustomSuggestPrompt(SuggestPromptUtil.java:192)
+	at com.alibabacloud.intellij.cosy.core.lsp.LanguageWebSocketService.refreshCustomCommands(LanguageWebSocketService.java:880)
+	at com.alibabacloud.intellij.cosy.core.Cosy.lambda$asyncActionAfterCosyStart$5(Cosy.java:294)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)updateCustomSuggestPrompt error
+
+java.lang.NullPointerException: Cannot invoke "com.alibabacloud.intellij.cosy.db.DataSourceService.isDatasourceExist()" because "dataSourceService" is null
+	at com.alibabacloud.intellij.cosy.chat.context.DatabaseContextRefProvider.register(DatabaseContextRefProvider.java:97)
+	at com.alibabacloud.intellij.cosy.util.SuggestPromptUtil.updateCustomSuggestPrompt(SuggestPromptUtil.java:192)
+	at com.alibabacloud.intellij.cosy.core.lsp.LanguageWebSocketService.refreshCustomCommands(LanguageWebSocketService.java:880)
+	at com.alibabacloud.intellij.cosy.core.Cosy.lambda$asyncActionAfterCosyStart$5(Cosy.java:294)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)updateCustomSuggestPrompt error
+
+java.lang.NullPointerException: Cannot invoke "com.alibabacloud.intellij.cosy.db.DataSourceService.isDatasourceExist()" because "dataSourceService" is null
+	at com.alibabacloud.intellij.cosy.chat.context.DatabaseContextRefProvider.register(DatabaseContextRefProvider.java:97)
+	at com.alibabacloud.intellij.cosy.util.SuggestPromptUtil.updateCustomSuggestPrompt(SuggestPromptUtil.java:192)
+	at com.alibabacloud.intellij.cosy.core.lsp.LanguageWebSocketService.refreshCustomCommands(LanguageWebSocketService.java:880)
+	at com.alibabacloud.intellij.cosy.core.Cosy.lambda$asyncActionAfterCosyStart$5(Cosy.java:294)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+```
